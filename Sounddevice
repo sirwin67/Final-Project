@@ -1,0 +1,21 @@
+import sounddevice as sd
+import numpy as np
+
+def record_audio(duration, sample_rate):
+    print("Recording...")
+    audio = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype='int16')
+    sd.wait()
+    return audio
+
+def detect_chord(audio):
+    # Your chord detection logic here.
+    # This is where you need to implement the chord recognition algorithm.
+    # For simplicity, let's just print the audio array.
+    print(audio)
+
+if __name__ == "__main__":
+    duration = 5  # Duration of recording in seconds
+    sample_rate = 44100  # Sample rate for audio (standard for most devices)
+
+    audio = record_audio(duration, sample_rate)
+    detect_chord(audio)
